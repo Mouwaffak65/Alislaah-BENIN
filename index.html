@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>AOH | Association Alislaah Œuvres Humanitaires - Bénin</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Swiper JS (carrousel moderne) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #1e2a2f;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #0f5c3f;
+            --primary-dark: #0a3f2a;
+            --primary-light: #e6f4ef;
+            --secondary: #c8a245;
+            --secondary-dark: #a67c2e;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-700: #374151;
+            --gray-900: #111827;
+            --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 20px 25px -12px rgba(0, 0, 0, 0.08);
+            --radius-xl: 1.5rem;
+            --radius-lg: 1rem;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ========= HEADER & NAV ========= */
+        .site-header {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 0.9rem 0;
+            gap: 1rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary) 0%, #1f7a54 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 1.7rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+            color: var(--primary-dark);
+        }
+
+        .logo-text p {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--secondary);
+            letter-spacing: 0.5px;
+        }
+
+        /* Navigation principale style moderne */
+        .main-nav ul {
+            display: flex;
+            gap: 2.2rem;
+            list-style: none;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--gray-700);
+            transition: 0.2s;
+            position: relative;
+        }
+
+        .main-nav a:hover {
+            color: var(--primary);
+        }
+
+        .main-nav a.active {
+            color: var(--primary);
+        }
+
+        .main-nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 2.5px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        /* Mobile nav */
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* ========= SECTIONS ========= */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+            letter-spacing: -0.02em;
+        }
+
+        .section-sub {
+            text-align: center;
+            color: var(--gray-700);
+            max-width: 680px;
+            margin: 0 auto 3rem auto;
+            font-size: 1.05rem;
+        }
+
+        /* Carrousel global */
+        .swiper {
+            width: 100%;
+            padding: 1rem 0 2.5rem 0;
+        }
+
+        .swiper-slide {
+            height: auto;
+        }
+
+        /* Cartes projets */
+        .project-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--gray-200);
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .project-img {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            flex: 1;
+        }
+
+        .project-category {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--secondary);
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--primary-dark);
+        }
+
+        .project-desc {
+            color: var(--gray-700);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1.2rem;
+        }
+
+        .btn-read {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: inherit;
+            padding: 0;
+        }
+
+        .btn-read i {
+            transition: transform 0.2s;
+        }
+
+        .btn-read:hover {
+            color: var(--secondary-dark);
+        }
+
+        .btn-read:hover i {
+            transform: translateX(4px);
+        }
+
+        /* Cartes membres */
+        .member-card {
+            text-align: center;
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: 1.8rem 1rem;
+            box-shadow: var(--shadow-sm);
+            transition: 0.25s;
+            border: 1px solid var(--gray-100);
+        }
+
+        .member-avatar {
+            width: 110px;
+            height: 110px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8rem;
+            color: var(--primary);
+            border: 3px solid var(--secondary);
+        }
+
+        .member-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .member-role {
+            font-size: 0.8rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        /* Cartes avis */
+        .testimonial-card {
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            padding: 1.8rem;
+            border-left: 5px solid var(--secondary);
+            box-shadow: var(--shadow-sm);
+            height: 100%;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--gray-700);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .stars {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        /* Swiper navigation custom */
+        .swiper-button-next, .swiper-button-prev {
+            color: var(--primary);
+            background: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-dark);
+            color: #e2e8f0;
+            padding: 3rem 0 2rem;
+            margin-top: 2rem;
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin-right: 1rem;
+            font-size: 1.3rem;
+            transition: 0.2s;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 880px) {
+            .menu-toggle {
+                display: block;
+            }
+            .main-nav {
+                position: fixed;
+                top: 75px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 75px);
+                background: white;
+                box-shadow: 2px 0 20px rgba(0,0,0,0.1);
+                transition: 0.3s;
+                z-index: 999;
+                padding: 2rem;
+            }
+            .main-nav.open {
+                left: 0;
+            }
+            .main-nav ul {
+                flex-direction: column;
+                gap: 1.8rem;
+            }
+            .header-inner {
+                justify-content: space-between;
+            }
+            .container {
+                padding: 0 1.2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .project-img {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <div class="logo-area">
+            <div class="logo-icon">
+                <i class="fas fa-hands-helping"></i>
+            </div>
+            <div class="logo-text">
+                <h1>AOH Bénin</h1>
+                <p>Alislaah Œuvres Humanitaires</p>
+            </div>
+        </div>
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav class="main-nav" id="mainNav">
+            <ul>
+                <li><a href="#accueil" class="active nav-link">Accueil</a></li>
+                <li><a href="#projets" class="nav-link">Projets</a></li>
+                <li><a href="#equipes" class="nav-link">Équipes</a></li>
+                <li><a href="#missions" class="nav-link">Missions</a></li>
+                <li><a href="#membres" class="nav-link">Membres</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- Hero section Accueil avec intro rapide -->
+    <section id="accueil" style="padding: 3rem 0 4rem 0; background: linear-gradient(120deg, #f9fefb 0%, #f4f9f5 100%);">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <span style="background: var(--primary-light); padding: 0.3rem 1rem; border-radius: 60px; font-weight: 600; color: var(--primary); font-size: 0.8rem;"><i class="fas fa-mosque"></i> Bâtir un avenir meilleur</span>
+                <h2 style="font-size: 2.6rem; font-weight: 800; color: var(--primary-dark); margin: 1.2rem 0 1rem;">Construire & partager <br> pour les communautés</h2>
+                <p style="font-size: 1.1rem; color: var(--gray-700); margin-bottom: 1.5rem;">Mosquées, puits, forages, classes, maisons, kits alimentaires, machines à coudre, soins de la cataracte — l'association AOH agit concrètement au Bénin.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION PROJETS RÉCENTS : CARROUSEL AUTO -->
+    <section id="projets" style="background: #ffffff;">
+        <div class="container">
+            <div class="section-title">📌 Projets récents</div>
+            <div class="section-sub">Découvrez nos dernières réalisations : mosquées, forages, distributions, soutien médical</div>
+            <div class="swiper projectsSwiper">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <div class="project-img" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://placehold.co/800x500/2a6e3f/ffffff?text=Construction+Mosquée'); background-size: cover;"></div>
+                            <div class="project-content">
+                                <div class="project-category"><i class="fas fa-mosque"></i> Construction</div>
+                                <div class="project-title">Mosquée Al-Nour</div>
+                                <div class="project-desc">Édification d'une mosquée moderne avec école coranique à Parakou, capacité 500 fidèles.</div>
+                                <button class="btn-read" onclick="alert('Projet Mosquée Al-Nour : inauguration prévue Juin 2026. Participez à nos actions.')">Lire plus <i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <div class="project-img" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://placehold.co/800x500/1f7a54/ffffff?text=Forage+Eau'); background-size: cover;"></div>
+                            <div class="project-content">
+                                <div class="project-category"><i class="fas fa-water"></i> Eau potable</div>
+                                <div class="project-title">Forage & Puits à Kandi</div>
+                                <div class="project-desc">Réalisation de 3 forages solaires et 5 puits villageois pour plus de 2000 habitants.</div>
+                                <button class="btn-read" onclick="alert('Forage Kandi terminé en mars 2025, merci aux donateurs.')">Lire plus <i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <div class="project-img" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://placehold.co/800x500/c8a245/ffffff?text=Distribution+Alimentaire'); background-size: cover;"></div>
+                            <div class="project-content">
+                                <div class="project-category"><i class="fas fa-hand-holding-heart"></i> Aide sociale</div>
+                                <div class="project-title">Kits alimentaires & matériel</div>
+                                <div class="project-desc">Distribution de 800 colis alimentaires + machines à coudre pour femmes vulnérables à Cotonou.</div>
+                                <button class="btn-read" onclick="alert('Projet financé par la zakat 2025.')">Lire plus <i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 4 - cataracte + classes -->
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <div class="project-img" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://placehold.co/800x500/0f5c3f/ffffff?text=Chirurgie+Cataracte'); background-size: cover;"></div>
+                            <div class="project-content">
+                                <div class="project-category"><i class="fas fa-eye"></i> Santé</div>
+                                <div class="project-title">Campagne Cataracte</div>
+                                <div class="project-desc">120 opérations de la cataracte réalisées gratuitement en partenariat avec des ophtalmologues.</div>
+                                <button class="btn-read" onclick="alert('Campagne terminée à l\'hôpital de Porto-Novo.')">Lire plus <i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION MEMBRES DE L'ASSOCIATION (carrousel auto) -->
+    <section id="membres" style="background: var(--gray-50);">
+        <div class="container">
+            <div class="section-title">👥 Membres de l'association</div>
+            <div class="section-sub">Les acteurs engagés qui portent les projets humanitaires d'AOH au Bénin</div>
+            <div class="swiper membresSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><div class="member-card"><div class="member-avatar"><i class="fas fa-user-circle"></i></div><div class="member-name">Imam Moussa Diallo</div><div class="member-role">Président Fondateur</div><p style="font-size:0.8rem; margin-top:0.5rem;">15 ans d’engagement</p></div></div>
+                    <div class="swiper-slide"><div class="member-card"><div class="member-avatar"><i class="fas fa-female"></i></div><div class="member-name">Aïssatou Gounou</div><div class="member-role">Secrétaire Générale</div><p style="font-size:0.8rem;">Coordination terrain</p></div></div>
+                    <div class="swiper-slide"><div class="member-card"><div class="member-avatar"><i class="fas fa-chalkboard-user"></i></div><div class="member-name">Dr. Karim Aboubacar</div><div class="member-role">Responsable Santé</div><p style="font-size:0.8rem;">Campagnes cataracte</p></div></div>
+                    <div class="swiper-slide"><div class="member-card"><div class="member-avatar"><i class="fas fa-hard-hat"></i></div><div class="member-name">Yacoubou Tijani</div><div class="member-role">Directeur des constructions</div><p style="font-size:0.8rem;">Mosquées & classes</p></div></div>
+                    <div class="swiper-slide"><div class="member-card"><div class="member-avatar"><i class="fas fa-hand-sparkles"></i></div><div class="member-name">Fatima Zannou</div><div class="member-role">Coordinateur Social</div><p style="font-size:0.8rem;">Kits alimentaires</p></div></div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION AVIS (témoignages) carrousel auto 4+ -->
+    <section id="equipes" style="background: white;">
+        <div class="container">
+            <div class="section-title">⭐ Avis & témoignages</div>
+            <div class="section-sub">Ce que nos bénéficiaires et partenaires disent de nos actions humanitaires</div>
+            <div class="swiper avisSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><div class="testimonial-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><div class="testimonial-text">"Grâce à AOH, j'ai retrouvé la vue après mon opération de la cataracte. Une bénédiction."</div><div class="testimonial-author">— Mariam S., 62 ans, Porto-Novo</div></div></div>
+                    <div class="swiper-slide"><div class="testimonial-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><div class="testimonial-text">"La machine à coudre offerte m’a permis de lancer mon activité. Merci pour la formation."</div><div class="testimonial-author">— Awa B., Cotonou</div></div></div>
+                    <div class="swiper-slide"><div class="testimonial-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div><div class="testimonial-text">"Le forage construit dans notre village a changé nos vies, plus besoin de marcher des kilomètres."</div><div class="testimonial-author">— Chef Adissa, Kandi</div></div></div>
+                    <div class="swiper-slide"><div class="testimonial-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><div class="testimonial-text">"La nouvelle mosquée et les classes coraniques sont magnifiques. Qu'Allah récompense l'association."</div><div class="testimonial-author">— Elhadj Oumar, Parakou</div></div></div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION MISSIONS : description des actions -->
+    <section id="missions" style="background: var(--primary-light);">
+        <div class="container">
+            <div class="section-title">📢 Nos missions humanitaires</div>
+            <div class="section-sub">AOH déploie des actions concrètes pour les communautés vulnérables</div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.8rem;">
+                <div style="background:white; border-radius: 1.5rem; padding:1.5rem; box-shadow: var(--shadow-sm);"><i class="fas fa-mosque" style="font-size:2rem; color:var(--secondary);"></i><h3 style="margin:1rem 0 0.5rem;">Construction mosquées</h3><p>Édification et rénovation de mosquées dans les zones rurales.</p></div>
+                <div style="background:white; border-radius: 1.5rem; padding:1.5rem; box-shadow: var(--shadow-sm);"><i class="fas fa-tint" style="font-size:2rem; color:var(--secondary);"></i><h3 style="margin:1rem 0 0.5rem;">Forages & puits</h3><p>Accès à l’eau potable durable via forages et puits à motricité humaine.</p></div>
+                <div style="background:white; border-radius: 1.5rem; padding:1.5rem; box-shadow: var(--shadow-sm);"><i class="fas fa-school" style="font-size:2rem; color:var(--secondary);"></i><h3 style="margin:1rem 0 0.5rem;">Classes & éducation</h3><p>Construction de salles de classe, fournitures scolaires et alphabétisation.</p></div>
+                <div style="background:white; border-radius: 1.5rem; padding:1.5rem; box-shadow: var(--shadow-sm);"><i class="fas fa-house-chimney" style="font-size:2rem; color:var(--secondary);"></i><h3 style="margin:1rem 0 0.5rem;">Maisons solidaires</h3><p>Logements pour familles démunies et orphelins.</p></div>
+                <div style="background:white; border-radius: 1.5rem; padding:1.5rem; box-shadow: var(--shadow-sm);"><i class="fas fa-boxes" style="font-size:2rem; color:var(--secondary);"></i><h3 style="margin:1rem 0 0.5rem;">Kits alimentaires</h3><p>Distribution régulière de repas et colis alimentaires.</p></div>
+                <div style="background:white; border-radius: 1.5rem; padding:1.5rem; box-shadow: var(--shadow-sm);"><i class="fas fa-eye" style="font-size:2rem; color:var(--secondary);"></i><h3 style="margin:1rem 0 0.5rem;">Soins cataracte</h3><p>Campagnes chirurgicales gratuites de la cataracte et consultations.</p></div>
+                <div style="background:white; border-radius: 1.5rem; padding:1.5rem; box-shadow: var(--shadow-sm);"><i class="fas fa-tshirt" style="font-size:2rem; color:var(--secondary);"></i><h3 style="margin:1rem 0 0.5rem;">Machines à coudre</h3><p>Autonomisation féminine par don de machines et formations.</p></div>
+                <div style="background:white; border-radius: 1.5rem; padding:1.5rem; box-shadow: var(--shadow-sm);"><i class="fas fa-tools" style="font-size:2rem; color:var(--secondary);"></i><h3 style="margin:1rem 0 0.5rem;">Matériaux importants</h3><p>Fourniture de matériaux de construction et équipements.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">📞 Contactez-nous</div>
+            <div class="section-sub">Rejoignez notre œuvre humanitaire ou sollicitez notre aide</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+                <div style="flex:1; min-width: 250px; background: white; border-radius: var(--radius-xl); padding: 1.8rem; box-shadow: var(--shadow-sm);"><i class="fas fa-map-pin" style="color: var(--secondary); font-size: 1.6rem;"></i><h3>Adresse</h3><p>Cotonou, Bénin - Quartier Ganhi <br> 02 BP 1526</p></div>
+                <div style="flex:1; min-width: 250px; background: white; border-radius: var(--radius-xl); padding: 1.8rem; box-shadow: var(--shadow-sm);"><i class="fas fa-phone-alt" style="color: var(--secondary); font-size: 1.6rem;"></i><h3>Téléphone</h3><p>+229 67 89 12 34 <br> +229 97 45 23 45</p></div>
+                <div style="flex:1; min-width: 250px; background: white; border-radius: var(--radius-xl); padding: 1.8rem; box-shadow: var(--shadow-sm);"><i class="fas fa-envelope" style="color: var(--secondary); font-size: 1.6rem;"></i><h3>Email</h3><p>contact@aoh-benin.org<br>appui@aoh-benin.org</p></div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col"><h4>AOH Bénin</h4><p>Association islamique pour les œuvres humanitaires — construire, soigner, partager.</p></div>
+            <div class="footer-col"><h4>Liens</h4><p><a href="#projets">Projets</a><br><a href="#membres">Membres</a><br><a href="#missions">Missions</a></p></div>
+            <div class="footer-col"><h4>Suivez-nous</h4><div class="social-links"><a href="#"><i class="fab fa-facebook"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-whatsapp"></i></a></div></div>
+        </div>
+        <div class="copyright"><i class="fas fa-hand-holding-heart"></i> Association Alislaah pour les Œuvres Humanitaires (AOH) - Bénin 2026</div>
+    </div>
+</footer>
+
+<script>
+    // Menu mobile toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+    if(menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('open');
+        });
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('open');
+            });
+        });
+    }
+
+    // Active link highlight on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            if(scrollY >= sectionTop) current = section.getAttribute('id');
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if(link.getAttribute('href') === `#${current}`) link.classList.add('active');
+        });
+    });
+
+    // Initialisation des trois carrousels auto
+    document.addEventListener('DOMContentLoaded', function() {
+        // Projets Swiper
+        new Swiper('.projectsSwiper', {
+            loop: true,
+            autoplay: { delay: 4000, disableOnInteraction: false },
+            slidesPerView: 1,
+            spaceBetween: 24,
+            pagination: { el: '.swiper-pagination', clickable: true },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+            breakpoints: {
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+            }
+        });
+        // Membres Swiper
+        new Swiper('.membresSwiper', {
+            loop: true,
+            autoplay: { delay: 3800, disableOnInteraction: false },
+            slidesPerView: 1,
+            spaceBetween: 20,
+            pagination: { el: '.swiper-pagination', clickable: true },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+            breakpoints: {
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+            }
+        });
+        // Avis Swiper
+        new Swiper('.avisSwiper', {
+            loop: true,
+            autoplay: { delay: 4500, disableOnInteraction: false },
+            slidesPerView: 1,
+            spaceBetween: 20,
+            pagination: { el: '.swiper-pagination', clickable: true },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+            breakpoints: {
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 2 }
+            }
+        });
+    });
+</script>
+</body>
+</html>
