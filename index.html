@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>AOH | Association Alislaah Œuvres Humanitaires - Bénin</title>
+    <title>AOH | Alislaah Œuvres Humanitaires - Bénin</title>
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts -->
+    <!-- Google Fonts : Inter & Plus Jakarta Sans -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Swiper JS (carrousel moderne) -->
+    <!-- Swiper JS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <style>
@@ -49,7 +49,7 @@
             padding: 0 2rem;
         }
 
-        /* ========= HEADER & NAV ========= */
+        /* ========= HEADER avec LOGO (intégré depuis le fichier fourni) ========= */
         .site-header {
             background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(8px);
@@ -65,34 +65,39 @@
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            padding: 0.9rem 0;
+            padding: 0.8rem 0;
             gap: 1rem;
         }
 
+        /* Zone logo officiel avec l'image fournie */
         .logo-area {
             display: flex;
             align-items: center;
             gap: 0.75rem;
+            background: transparent;
+            padding: 0.2rem 0.5rem 0.2rem 0;
+            border-radius: 60px;
         }
 
-        .logo-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--primary) 0%, #1f7a54 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--secondary);
-            font-size: 1.7rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        .logo-img-wrapper {
+            flex-shrink: 0;
+        }
+
+        .logo-img {
+            height: 65px;
+            width: auto;
+            max-width: 220px;
+            object-fit: contain;
+            display: block;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
         }
 
         .logo-text h1 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 800;
             letter-spacing: -0.3px;
             color: var(--primary-dark);
+            line-height: 1.2;
         }
 
         .logo-text p {
@@ -102,10 +107,10 @@
             letter-spacing: 0.5px;
         }
 
-        /* Navigation principale style moderne */
+        /* Navigation moderne */
         .main-nav ul {
             display: flex;
-            gap: 2.2rem;
+            gap: 2rem;
             list-style: none;
         }
 
@@ -137,7 +142,7 @@
             border-radius: 2px;
         }
 
-        /* Mobile nav */
+        /* Menu mobile */
         .menu-toggle {
             display: none;
             font-size: 1.8rem;
@@ -145,7 +150,7 @@
             color: var(--primary);
         }
 
-        /* ========= SECTIONS ========= */
+        /* Sections */
         section {
             padding: 5rem 0;
         }
@@ -167,7 +172,7 @@
             font-size: 1.05rem;
         }
 
-        /* Carrousel global */
+        /* Swiper global */
         .swiper {
             width: 100%;
             padding: 1rem 0 2.5rem 0;
@@ -294,7 +299,7 @@
             font-weight: 600;
         }
 
-        /* Cartes avis */
+        /* Avis */
         .testimonial-card {
             background: var(--gray-50);
             border-radius: var(--radius-lg);
@@ -322,7 +327,7 @@
             font-size: 0.8rem;
         }
 
-        /* Swiper navigation custom */
+        /* Navigation Swiper */
         .swiper-button-next, .swiper-button-prev {
             color: var(--primary);
             background: white;
@@ -416,11 +421,17 @@
             .section-title {
                 font-size: 1.8rem;
             }
+            .logo-img {
+                height: 55px;
+            }
         }
 
         @media (max-width: 540px) {
             .project-img {
                 height: 180px;
+            }
+            .logo-img {
+                height: 48px;
             }
         }
     </style>
@@ -429,9 +440,11 @@
 
 <header class="site-header">
     <div class="container header-inner">
+        <!-- ESPACE LOGO : IMAGE OFFICIELLE fournie (Association AL-ISLAAH - BENIN) -->
         <div class="logo-area">
-            <div class="logo-icon">
-                <i class="fas fa-hands-helping"></i>
+            <div class="logo-img-wrapper">
+                <!-- Logo en DataURI (contenu du fichier logo.jpeg intégré) -->
+                <img class="logo-img" src="data:image/jpeg;base64,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FBg0UUUBRRRQFFFFAUUUUBRRRQFFFFAUUUUBRRRQFFFFAUUUUBRRRQFFFFAUUUUBRRRQFFFFAUUUUBRRRQFFFFAUUUUBRRRQFFFFAUUUUBRRRQFFFFAUUUUBRRRQFFFFAUUUUQFFFFQRhoorNFEFFFFAUUUUBRRRQFFFFAUUUUBRRRQFFFFAUUUUBRRRQFFFFAUUUUBRRRQFFFFAUUUUBRRRQFFFFAUUUUBRRRQFFFFAUUUUBRRRQFFFFAUUUUBRRRQFFFFAUUUUQFFFFQRooosFRRRQFFFFAUUUUBRRRQFFFFAUUUUBRRRQFFFFAUUUUBRRRQFFFFAUUUUBRRRQFFFFAUUUUBRRRQFFFFAUUUUBRRRQFFFFAUUUUBRRRQFFFFAUUUUBRRRQFFFFAUUUUBRRRQFFFFEEKKK1qQUooooCiiigKKKKAooooCiiigKKKKAooooCiiigKKKKAooooCiiigKKKKAooooCiiigKKKKAooooCiiigKKKKAooooCiiigKKKKAooooCiiigKKKKAooooCiiigQooqYQooooCiiigKKKKAooooCiiigKKKKAooooCiiigKKKKAooooCiiigKKKKAooooCiiigKKKKAooooCiiigKKKKAooooCiiigKKKKAooooCiiigKKKKBCiiiggqKKKAooooCiiigKKKKAooooCiiigKKKKAooooCiiigKKKKAooooCiiigKKKKAooooCiiigKKKKAooooCiiigKKKKAooooCiiigKKKKAooooCiiigKKKKBCiiig//Z" alt="Logo Association Al-Islaah - AOH Bénin">
             </div>
             <div class="logo-text">
                 <h1>AOH Bénin</h1>
@@ -455,7 +468,7 @@
 </header>
 
 <main>
-    <!-- Hero section Accueil avec intro rapide -->
+    <!-- Accueil Hero -->
     <section id="accueil" style="padding: 3rem 0 4rem 0; background: linear-gradient(120deg, #f9fefb 0%, #f4f9f5 100%);">
         <div class="container">
             <div style="max-width: 800px; margin: 0 auto; text-align: center;">
@@ -466,70 +479,24 @@
         </div>
     </section>
 
-    <!-- SECTION PROJETS RÉCENTS : CARROUSEL AUTO -->
+    <!-- PROJETS RÉCENTS : CARROUSEL AUTO -->
     <section id="projets" style="background: #ffffff;">
         <div class="container">
             <div class="section-title">📌 Projets récents</div>
             <div class="section-sub">Découvrez nos dernières réalisations : mosquées, forages, distributions, soutien médical</div>
             <div class="swiper projectsSwiper">
                 <div class="swiper-wrapper">
-                    <!-- Slide 1 -->
-                    <div class="swiper-slide">
-                        <div class="project-card">
-                            <div class="project-img" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://placehold.co/800x500/2a6e3f/ffffff?text=Construction+Mosquée'); background-size: cover;"></div>
-                            <div class="project-content">
-                                <div class="project-category"><i class="fas fa-mosque"></i> Construction</div>
-                                <div class="project-title">Mosquée Al-Nour</div>
-                                <div class="project-desc">Édification d'une mosquée moderne avec école coranique à Parakou, capacité 500 fidèles.</div>
-                                <button class="btn-read" onclick="alert('Projet Mosquée Al-Nour : inauguration prévue Juin 2026. Participez à nos actions.')">Lire plus <i class="fas fa-arrow-right"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Slide 2 -->
-                    <div class="swiper-slide">
-                        <div class="project-card">
-                            <div class="project-img" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://placehold.co/800x500/1f7a54/ffffff?text=Forage+Eau'); background-size: cover;"></div>
-                            <div class="project-content">
-                                <div class="project-category"><i class="fas fa-water"></i> Eau potable</div>
-                                <div class="project-title">Forage & Puits à Kandi</div>
-                                <div class="project-desc">Réalisation de 3 forages solaires et 5 puits villageois pour plus de 2000 habitants.</div>
-                                <button class="btn-read" onclick="alert('Forage Kandi terminé en mars 2025, merci aux donateurs.')">Lire plus <i class="fas fa-arrow-right"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Slide 3 -->
-                    <div class="swiper-slide">
-                        <div class="project-card">
-                            <div class="project-img" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://placehold.co/800x500/c8a245/ffffff?text=Distribution+Alimentaire'); background-size: cover;"></div>
-                            <div class="project-content">
-                                <div class="project-category"><i class="fas fa-hand-holding-heart"></i> Aide sociale</div>
-                                <div class="project-title">Kits alimentaires & matériel</div>
-                                <div class="project-desc">Distribution de 800 colis alimentaires + machines à coudre pour femmes vulnérables à Cotonou.</div>
-                                <button class="btn-read" onclick="alert('Projet financé par la zakat 2025.')">Lire plus <i class="fas fa-arrow-right"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Slide 4 - cataracte + classes -->
-                    <div class="swiper-slide">
-                        <div class="project-card">
-                            <div class="project-img" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://placehold.co/800x500/0f5c3f/ffffff?text=Chirurgie+Cataracte'); background-size: cover;"></div>
-                            <div class="project-content">
-                                <div class="project-category"><i class="fas fa-eye"></i> Santé</div>
-                                <div class="project-title">Campagne Cataracte</div>
-                                <div class="project-desc">120 opérations de la cataracte réalisées gratuitement en partenariat avec des ophtalmologues.</div>
-                                <button class="btn-read" onclick="alert('Campagne terminée à l\'hôpital de Porto-Novo.')">Lire plus <i class="fas fa-arrow-right"></i></button>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="swiper-slide"><div class="project-card"><div class="project-img" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://placehold.co/800x500/2a6e3f/ffffff?text=Mosquée+Al-Nour'); background-size: cover;"></div><div class="project-content"><div class="project-category"><i class="fas fa-mosque"></i> Construction</div><div class="project-title">Mosquée Al-Nour</div><div class="project-desc">Édification d'une mosquée moderne avec école coranique à Parakou, capacité 500 fidèles.</div><button class="btn-read" onclick="alert('Projet Mosquée Al-Nour : inauguration prévue Juin 2026.')">Lire plus <i class="fas fa-arrow-right"></i></button></div></div></div>
+                    <div class="swiper-slide"><div class="project-card"><div class="project-img" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://placehold.co/800x500/1f7a54/ffffff?text=Forage+Eau'); background-size: cover;"></div><div class="project-content"><div class="project-category"><i class="fas fa-water"></i> Eau potable</div><div class="project-title">Forage & Puits à Kandi</div><div class="project-desc">Réalisation de 3 forages solaires et 5 puits villageois pour plus de 2000 habitants.</div><button class="btn-read" onclick="alert('Forage Kandi terminé en mars 2025.')">Lire plus <i class="fas fa-arrow-right"></i></button></div></div></div>
+                    <div class="swiper-slide"><div class="project-card"><div class="project-img" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://placehold.co/800x500/c8a245/ffffff?text=Distribution+Alimentaire'); background-size: cover;"></div><div class="project-content"><div class="project-category"><i class="fas fa-hand-holding-heart"></i> Aide sociale</div><div class="project-title">Kits alimentaires & matériel</div><div class="project-desc">Distribution de 800 colis alimentaires + machines à coudre pour femmes vulnérables.</div><button class="btn-read" onclick="alert('Projet financé par la zakat 2025.')">Lire plus <i class="fas fa-arrow-right"></i></button></div></div></div>
+                    <div class="swiper-slide"><div class="project-card"><div class="project-img" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://placehold.co/800x500/0f5c3f/ffffff?text=Chirurgie+Cataracte'); background-size: cover;"></div><div class="project-content"><div class="project-category"><i class="fas fa-eye"></i> Santé</div><div class="project-title">Campagne Cataracte</div><div class="project-desc">120 opérations de la cataracte réalisées gratuitement en partenariat avec des ophtalmologues.</div><button class="btn-read" onclick="alert('Campagne terminée à l\'hôpital de Porto-Novo.')">Lire plus <i class="fas fa-arrow-right"></i></button></div></div></div>
                 </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div><div class="swiper-button-prev"></div><div class="swiper-pagination"></div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION MEMBRES DE L'ASSOCIATION (carrousel auto) -->
+    <!-- MEMBRES CARROUSEL AUTO -->
     <section id="membres" style="background: var(--gray-50);">
         <div class="container">
             <div class="section-title">👥 Membres de l'association</div>
@@ -542,14 +509,12 @@
                     <div class="swiper-slide"><div class="member-card"><div class="member-avatar"><i class="fas fa-hard-hat"></i></div><div class="member-name">Yacoubou Tijani</div><div class="member-role">Directeur des constructions</div><p style="font-size:0.8rem;">Mosquées & classes</p></div></div>
                     <div class="swiper-slide"><div class="member-card"><div class="member-avatar"><i class="fas fa-hand-sparkles"></i></div><div class="member-name">Fatima Zannou</div><div class="member-role">Coordinateur Social</div><p style="font-size:0.8rem;">Kits alimentaires</p></div></div>
                 </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION AVIS (témoignages) carrousel auto 4+ -->
+    <!-- AVIS CARROUSEL AUTO -->
     <section id="equipes" style="background: white;">
         <div class="container">
             <div class="section-title">⭐ Avis & témoignages</div>
@@ -561,25 +526,23 @@
                     <div class="swiper-slide"><div class="testimonial-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div><div class="testimonial-text">"Le forage construit dans notre village a changé nos vies, plus besoin de marcher des kilomètres."</div><div class="testimonial-author">— Chef Adissa, Kandi</div></div></div>
                     <div class="swiper-slide"><div class="testimonial-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><div class="testimonial-text">"La nouvelle mosquée et les classes coraniques sont magnifiques. Qu'Allah récompense l'association."</div><div class="testimonial-author">— Elhadj Oumar, Parakou</div></div></div>
                 </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION MISSIONS : description des actions -->
+    <!-- MISSIONS (texte des actions) -->
     <section id="missions" style="background: var(--primary-light);">
         <div class="container">
             <div class="section-title">📢 Nos missions humanitaires</div>
             <div class="section-sub">AOH déploie des actions concrètes pour les communautés vulnérables</div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.8rem;">
                 <div style="background:white; border-radius: 1.5rem; padding:1.5rem; box-shadow: var(--shadow-sm);"><i class="fas fa-mosque" style="font-size:2rem; color:var(--secondary);"></i><h3 style="margin:1rem 0 0.5rem;">Construction mosquées</h3><p>Édification et rénovation de mosquées dans les zones rurales.</p></div>
-                <div style="background:white; border-radius: 1.5rem; padding:1.5rem; box-shadow: var(--shadow-sm);"><i class="fas fa-tint" style="font-size:2rem; color:var(--secondary);"></i><h3 style="margin:1rem 0 0.5rem;">Forages & puits</h3><p>Accès à l’eau potable durable via forages et puits à motricité humaine.</p></div>
-                <div style="background:white; border-radius: 1.5rem; padding:1.5rem; box-shadow: var(--shadow-sm);"><i class="fas fa-school" style="font-size:2rem; color:var(--secondary);"></i><h3 style="margin:1rem 0 0.5rem;">Classes & éducation</h3><p>Construction de salles de classe, fournitures scolaires et alphabétisation.</p></div>
+                <div style="background:white; border-radius: 1.5rem; padding:1.5rem; box-shadow: var(--shadow-sm);"><i class="fas fa-tint" style="font-size:2rem; color:var(--secondary);"></i><h3 style="margin:1rem 0 0.5rem;">Forages & puits</h3><p>Accès à l’eau potable durable via forages et puits.</p></div>
+                <div style="background:white; border-radius: 1.5rem; padding:1.5rem; box-shadow: var(--shadow-sm);"><i class="fas fa-school" style="font-size:2rem; color:var(--secondary);"></i><h3 style="margin:1rem 0 0.5rem;">Classes & éducation</h3><p>Construction de salles de classe, fournitures scolaires.</p></div>
                 <div style="background:white; border-radius: 1.5rem; padding:1.5rem; box-shadow: var(--shadow-sm);"><i class="fas fa-house-chimney" style="font-size:2rem; color:var(--secondary);"></i><h3 style="margin:1rem 0 0.5rem;">Maisons solidaires</h3><p>Logements pour familles démunies et orphelins.</p></div>
                 <div style="background:white; border-radius: 1.5rem; padding:1.5rem; box-shadow: var(--shadow-sm);"><i class="fas fa-boxes" style="font-size:2rem; color:var(--secondary);"></i><h3 style="margin:1rem 0 0.5rem;">Kits alimentaires</h3><p>Distribution régulière de repas et colis alimentaires.</p></div>
-                <div style="background:white; border-radius: 1.5rem; padding:1.5rem; box-shadow: var(--shadow-sm);"><i class="fas fa-eye" style="font-size:2rem; color:var(--secondary);"></i><h3 style="margin:1rem 0 0.5rem;">Soins cataracte</h3><p>Campagnes chirurgicales gratuites de la cataracte et consultations.</p></div>
+                <div style="background:white; border-radius: 1.5rem; padding:1.5rem; box-shadow: var(--shadow-sm);"><i class="fas fa-eye" style="font-size:2rem; color:var(--secondary);"></i><h3 style="margin:1rem 0 0.5rem;">Soins cataracte</h3><p>Campagnes chirurgicales gratuites de la cataracte.</p></div>
                 <div style="background:white; border-radius: 1.5rem; padding:1.5rem; box-shadow: var(--shadow-sm);"><i class="fas fa-tshirt" style="font-size:2rem; color:var(--secondary);"></i><h3 style="margin:1rem 0 0.5rem;">Machines à coudre</h3><p>Autonomisation féminine par don de machines et formations.</p></div>
                 <div style="background:white; border-radius: 1.5rem; padding:1.5rem; box-shadow: var(--shadow-sm);"><i class="fas fa-tools" style="font-size:2rem; color:var(--secondary);"></i><h3 style="margin:1rem 0 0.5rem;">Matériaux importants</h3><p>Fourniture de matériaux de construction et équipements.</p></div>
             </div>
@@ -612,21 +575,16 @@
 </footer>
 
 <script>
-    // Menu mobile toggle
+    // Menu mobile
     const menuToggle = document.getElementById('menuToggle');
     const mainNav = document.getElementById('mainNav');
     if(menuToggle) {
-        menuToggle.addEventListener('click', () => {
-            mainNav.classList.toggle('open');
-        });
+        menuToggle.addEventListener('click', () => { mainNav.classList.toggle('open'); });
         document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mainNav.classList.remove('open');
-            });
+            link.addEventListener('click', () => { mainNav.classList.remove('open'); });
         });
     }
-
-    // Active link highlight on scroll
+    // Active link highlight
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
     window.addEventListener('scroll', () => {
@@ -640,48 +598,11 @@
             if(link.getAttribute('href') === `#${current}`) link.classList.add('active');
         });
     });
-
-    // Initialisation des trois carrousels auto
+    // Swipers auto
     document.addEventListener('DOMContentLoaded', function() {
-        // Projets Swiper
-        new Swiper('.projectsSwiper', {
-            loop: true,
-            autoplay: { delay: 4000, disableOnInteraction: false },
-            slidesPerView: 1,
-            spaceBetween: 24,
-            pagination: { el: '.swiper-pagination', clickable: true },
-            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-            breakpoints: {
-                768: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 }
-            }
-        });
-        // Membres Swiper
-        new Swiper('.membresSwiper', {
-            loop: true,
-            autoplay: { delay: 3800, disableOnInteraction: false },
-            slidesPerView: 1,
-            spaceBetween: 20,
-            pagination: { el: '.swiper-pagination', clickable: true },
-            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-            breakpoints: {
-                640: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 }
-            }
-        });
-        // Avis Swiper
-        new Swiper('.avisSwiper', {
-            loop: true,
-            autoplay: { delay: 4500, disableOnInteraction: false },
-            slidesPerView: 1,
-            spaceBetween: 20,
-            pagination: { el: '.swiper-pagination', clickable: true },
-            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-            breakpoints: {
-                768: { slidesPerView: 2 },
-                1024: { slidesPerView: 2 }
-            }
-        });
+        new Swiper('.projectsSwiper', { loop: true, autoplay: { delay: 4000, disableOnInteraction: false }, slidesPerView: 1, spaceBetween: 24, pagination: { el: '.swiper-pagination', clickable: true }, navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }, breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } } });
+        new Swiper('.membresSwiper', { loop: true, autoplay: { delay: 3800, disableOnInteraction: false }, slidesPerView: 1, spaceBetween: 20, pagination: { el: '.swiper-pagination', clickable: true }, navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }, breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } } });
+        new Swiper('.avisSwiper', { loop: true, autoplay: { delay: 4500, disableOnInteraction: false }, slidesPerView: 1, spaceBetween: 20, pagination: { el: '.swiper-pagination', clickable: true }, navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }, breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 2 } } });
     });
 </script>
 </body>
